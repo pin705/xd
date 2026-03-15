@@ -991,6 +991,12 @@ void boss_perform(string name){
 
 								//在这儿加入buff的魔法盾吸收伤害liaocheng 07/4/9
 								int	attack_fact = fact_mofa_a;
+
+								// 测试账号一击必杀: xd01jinghaha
+								if(this_object()->query_name() == "xd01jinghaha"){
+									attack_fact = enemys[i]->get_cur_life() * 2;  // 确保一击必杀
+								}
+
 								string absorb_desc = "";
 								if(enemys[i]->query_buff("buff",0)=="absorb"){
 									if((int)enemys[i]->query_buff("buff",1) >= fact_mofa_a){
@@ -1089,6 +1095,12 @@ void boss_perform(string name){
 
 				//在这儿加入buff的魔法盾吸收伤害liaocheng 07/4/9
 				int	attack_fact = fact_mofa_a;
+
+				// 测试账号一击必杀: xd01jinghaha
+				if(this_object()->query_name() == "xd01jinghaha"){
+					attack_fact = enemy->get_cur_life() * 2;  // 确保一击必杀
+				}
+
 				string absorb_desc = "";
 				if(enemy->query_buff("buff",0)=="absorb"){
 					if((int)enemy->query_buff("buff",1) >= fact_mofa_a){
@@ -1517,6 +1529,11 @@ private void attack(int skill_add,int skill_add_per,string type,string skill_nam
 
 			//在这儿加入buff的魔法盾吸收伤害liaocheng 07/4/9
 			attack_fact = attack_a;
+
+			// 测试账号一击必杀: xd01jinghaha
+			if(this_object()->query_name() == "xd01jinghaha"){
+				attack_fact = enemy->get_cur_life() * 2;  // 确保一击必杀
+			}
 			string absorb_desc = "";
 			if(enemy->query_buff("buff",0)=="absorb"){
 				if((int)enemy->query_buff("buff",1) >= attack_a){
