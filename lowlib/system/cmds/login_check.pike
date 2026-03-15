@@ -50,15 +50,57 @@ int main(string arg)
 			if(me){
 				//两个验证，sessionid和password
 				if(userip&&userip==me->userip&&me->project==path&&me["reconnect"]&&me->reconnect(lgpswd)){
-					// HTTP API 模式检测：检查全局标记
-					int is_http_api = is_http_api_login(user_name);
-					if(is_http_api) {
+					// 检查并清除虚拟连接（解决新老界面切换白屏问题）
+					object http_api_d = find_object(ROOT + "/gamelib/single/daemons/http_api_daemon.pike");
+					if(http_api_d && functionp(http_api_d->has_virtual_connection)
+					   && http_api_d->has_virtual_connection(user_name)) {
+						// 用户有虚拟连接（从新界面登录过），现在从老界面登录
+						// 需要清除虚拟连接并重新创建玩家对象
+						Stdio.append_file("/tmp/xiand_login_debug.log", "User has virtual connection, clearing...\n");
+						// 清除虚拟连接
+						if(functionp(http_api_d->remove_virtual_connection))
+							http_api_d->remove_virtual_connection(user_name);
+						// 从 CONND 中移除玩家
+						object connd = find_object(SROOT + "/connd.pike");
+						if(connd && functionp(connd->erase_user))
+							connd->erase_user(me);
+						// 销毁旧玩家对象
+						destruct(me);
+						// 重新创建玩家对象（首次登录流程）
+						program u;
+						object m;
+						catch{
+							m=(object)(ROOT+"/"+path+"/master.pike");
+						};
+						if(m){
+							u=m->connect();
+						}
+						if(!u){
+							u=(program)(ROOT+"/"+path+"/clone/user.pike");
+						}
+						me=u();
+						me->set_name(user_name);
+						me->set_userip(userip);
+						me->set_project(path);
+						if(me->setup(lgpswd)) {
+							me->is_http_api_user = 0;
+							exec(me,previous_object());
+							if(environment(me)==0){
+								me->move(LOW_VOID_OB);
+							}
+							destruct(previous_object());
+							Stdio.append_file("/tmp/xiand_login_debug.log", "Recreated player after clearing virtual connection\n");
+						} else {
+							Stdio.append_file("/tmp/xiand_login_debug.log", "setup failed after clearing virtual connection\n");
+						}
+					}
+					else if(is_http_api_login(user_name)) {
+						// HTTP API 模式检测：检查全局标记
 						// 标记玩家为 HTTP API 用户（用于经验加成等）
 						me->is_http_api_user = 1;
 						// HTTP API 模式：不调用 exec()，更新虚拟连接池
-						object http_api_daemon = find_object(ROOT + "/gamelib/single/daemons/http_api_daemon.pike");
-						if(http_api_daemon && functionp(http_api_daemon->set_virtual_connection)) {
-							http_api_daemon->set_virtual_connection(user_name, ({0, time(), me}));
+						if(http_api_d && functionp(http_api_d->set_virtual_connection)) {
+							http_api_d->set_virtual_connection(user_name, ({0, time(), me}));
 						}
 					} else {
 						// Socket 模式：重置 HTTP API 标记，正常调用 exec()
@@ -89,15 +131,57 @@ int main(string arg)
 			//有这个用户，用户在线，进行验证
 			if(me){
 				if(me->project==path&&me["reconnect"]&&me->reconnect(lgpswd)){
-					// HTTP API 模式检测：检查全局标记
-					int is_http_api = is_http_api_login(user_name);
-					if(is_http_api) {
+					// 检查并清除虚拟连接（解决新老界面切换白屏问题）
+					object http_api_d = find_object(ROOT + "/gamelib/single/daemons/http_api_daemon.pike");
+					if(http_api_d && functionp(http_api_d->has_virtual_connection)
+					   && http_api_d->has_virtual_connection(user_name)) {
+						// 用户有虚拟连接（从新界面登录过），现在从老界面登录
+						// 需要清除虚拟连接并重新创建玩家对象
+						Stdio.append_file("/tmp/xiand_login_debug.log", "User has virtual connection (with user file), clearing...\n");
+						// 清除虚拟连接
+						if(functionp(http_api_d->remove_virtual_connection))
+							http_api_d->remove_virtual_connection(user_name);
+						// 从 CONND 中移除玩家
+						object connd = find_object(SROOT + "/connd.pike");
+						if(connd && functionp(connd->erase_user))
+							connd->erase_user(me);
+						// 销毁旧玩家对象
+						destruct(me);
+						// 重新创建玩家对象（首次登录流程）
+						program u;
+						object m;
+						catch{
+							m=(object)(ROOT+"/"+path+"/master.pike");
+						};
+						if(m){
+							u=m->connect();
+						}
+						if(!u){
+							u=(program)(ROOT+"/"+path+"/clone/user.pike");
+						}
+						me=u();
+						me->set_name(user_name);
+						me->set_userip(userip);
+						me->set_project(path);
+						if(me->setup(lgpswd)) {
+							me->is_http_api_user = 0;
+							exec(me,previous_object());
+							if(environment(me)==0){
+								me->move(LOW_VOID_OB);
+							}
+							destruct(previous_object());
+							Stdio.append_file("/tmp/xiand_login_debug.log", "Recreated player after clearing virtual connection (with user file)\n");
+						} else {
+							Stdio.append_file("/tmp/xiand_login_debug.log", "setup failed after clearing virtual connection (with user file)\n");
+						}
+					}
+					else if(is_http_api_login(user_name)) {
+						// HTTP API 模式检测：检查全局标记
 						// 标记玩家为 HTTP API 用户（用于经验加成等）
 						me->is_http_api_user = 1;
 						// HTTP API 模式：不调用 exec()，更新虚拟连接池
-						object http_api_daemon = find_object(ROOT + "/gamelib/single/daemons/http_api_daemon.pike");
-						if(http_api_daemon && functionp(http_api_daemon->set_virtual_connection)) {
-							http_api_daemon->set_virtual_connection(user_name, ({0, time(), me}));
+						if(http_api_d && functionp(http_api_d->set_virtual_connection)) {
+							http_api_d->set_virtual_connection(user_name, ({0, time(), me}));
 						}
 					} else {
 						// Socket 模式：重置 HTTP API 标记，正常调用 exec()
