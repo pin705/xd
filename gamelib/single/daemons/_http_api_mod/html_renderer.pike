@@ -114,25 +114,26 @@ string response_to_html(string response, string userid, string cmd)
 
     // ========== 新增境界按钮颜色样式（必须在这里定义）==========
     // 注意：这些样式在if-else之外，不受主题影响，确保始终加载
-    html += ".btn-outline-yujie{color:#8B7765;border:2px solid #8B7765;background:#FFF4EC;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-sejie{color:#4169E1;border:2px solid #4169E1;background:#ECF3FF;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-wuse{color:#ADD8E6;border:2px solid #ADD8E6;background:#F0F8FF;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-lisan1{color:#228B22;border:2px solid #228B22;background:#F0FFF0;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-lisan2{color:#32CD32;border:2px solid #32CD32;background:#F5FFF5;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-lisan3{color:#FFD700;border:2px solid #FFD700;background:#FFFFE0;padding:6px 12px;font-weight:bold;text-shadow:0 0 3px #FFA500}\n";
-    html += ".btn-outline-poxu{color:#FF6347;border:2px solid #FF6347;background:#FFF0EE;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-dujie{color:#FF4500;border:2px solid #FF4500;background:#FFE0DD;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-tianxian{color:#00BFFF;border:2px solid #00BFFF;background:#E0F7FF;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-jinxian{color:#FFA500;border:2px solid #FFA500;background:#FFF8E7;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-taiyi{color:#9932CC;border:2px solid #9932CC;background:#F3E5F5;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-hunyuan{color:#8A2BE2;border:2px solid #8A2BE2;background:#F3E5FF;padding:6px 12px;font-weight:bold}\n";
-    html += ".btn-outline-daluo{color:#9400D3;border:2px solid #9400D3;background:#F3E5FF;padding:6px 12px;font-weight:bold}\n";
+    // 使用 !important 确保覆盖 Bootstrap 默认样式
+    html += "a.btn.btn-outline-yujie{color:#8B7765!important;border-color:#8B7765!important;background:#FFF4EC!important}\n";
+    html += "a.btn.btn-outline-sejie{color:#4169E1!important;border-color:#4169E1!important;background:#ECF3FF!important}\n";
+    html += "a.btn.btn-outline-wuse{color:#ADD8E6!important;border-color:#ADD8E6!important;background:#F0F8FF!important}\n";
+    html += "a.btn.btn-outline-lisan1{color:#228B22!important;border-color:#228B22!important;background:#F0FFF0!important}\n";
+    html += "a.btn.btn-outline-lisan2{color:#32CD32!important;border-color:#32CD32!important;background:#F5FFF5!important}\n";
+    html += "a.btn.btn-outline-lisan3{color:#FFD700!important;border-color:#FFD700!important;background:#FFFFE0!important;text-shadow:0 0 3px #FFA500!important}\n";
+    html += "a.btn.btn-outline-poxu{color:#FF6347!important;border-color:#FF6347!important;background:#FFF0EE!important}\n";
+    html += "a.btn.btn-outline-dujie{color:#FF4500!important;border-color:#FF4500!important;background:#FFE0DD!important}\n";
+    html += "a.btn.btn-outline-tianxian{color:#00BFFF!important;border-color:#00BFFF!important;background:#E0F7FF!important}\n";
+    html += "a.btn.btn-outline-jinxian{color:#FFA500!important;border-color:#FFA500!important;background:#FFF8E7!important}\n";
+    html += "a.btn.btn-outline-taiyi{color:#9932CC!important;border-color:#9932CC!important;background:#F3E5F5!important}\n";
+    html += "a.btn.btn-outline-hunyuan{color:#8A2BE2!important;border-color:#8A2BE2!important;background:#F3E5FF!important}\n";
+    html += "a.btn.btn-outline-daluo{color:#9400D3!important;border-color:#9400D3!important;background:#F3E5FF!important}\n";
     // 大道境 - 金色发光特效
-    html += ".btn-outline-dadao{color:#FFD700;border:3px solid #FFD700;background:#000;padding:6px 14px;font-weight:bold;text-shadow:0 0 8px #FFD700,0 0 15px #FFA500,0 0 20px #FF4500;box-shadow:0 0 10px rgba(255,215,0,0.5)}\n";
-    html += ".btn-outline-dadao:hover{background:#1a1a1a;text-shadow:0 0 12px #FFD700,0 0 20px #FFA500,0 0 30px #FF4500;box-shadow:0 0 20px rgba(255,215,0,0.8);transform:scale(1.05)}\n";
+    html += "a.btn.btn-outline-dadao{color:#FFD700!important;border:3px solid #FFD700!important;background:#000!important;font-weight:bold!important;text-shadow:0 0 8px #FFD700,0 0 15px #FFA500,0 0 20px #FF4500!important;box-shadow:0 0 15px rgba(255,215,0,0.8)!important}\n";
+    html += "a.btn.btn-outline-dadao:hover{background:#1a1a1a!important;text-shadow:0 0 12px #FFD700,0 0 20px #FFA500,0 0 30px #FF4500!important;box-shadow:0 0 25px rgba(255,215,0,1)!important;transform:scale(1.05)!important}\n";
     // 超凡境 - 红橙金渐变
-    html += ".btn-outline-chaofan{color:#FFF;border:2px solid #FFD700;background:linear-gradient(90deg,#FF4500,#FF8C00,#FFD700);padding:6px 14px;font-weight:bold;box-shadow:0 0 10px rgba(255,215,0,0.6)}\n";
-    html += ".btn-outline-chaofan:hover{background:linear-gradient(90deg,#FFD700,#FFA500,#FF4500);box-shadow:0 0 20px rgba(255,215,0,0.9);transform:scale(1.08)}\n";
+    html += "a.btn.btn-outline-chaofan{color:#FFF!important;border:2px solid #FFD700!important;background:linear-gradient(90deg,#FF4500,#FF8C00,#FFD700)!important;font-weight:bold!important;box-shadow:0 0 15px rgba(255,215,0,0.8)!important}\n";
+    html += "a.btn.btn-outline-chaofan:hover{background:linear-gradient(90deg,#FFD700,#FFA500,#FF4500)!important;box-shadow:0 0 25px rgba(255,215,0,1)!important;transform:scale(1.08)!important}\n";
 
     html += ".ink-wash-gradient{background:linear-gradient(90deg,#8B4513,#D2691E,#CD853F,#DEB887,#2F4F4F,#696969);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:bold}\n";
     html += sprintf(".parent::-webkit-scrollbar{width:8px}\n");
