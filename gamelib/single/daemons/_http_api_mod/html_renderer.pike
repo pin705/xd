@@ -112,6 +112,28 @@ string response_to_html(string response, string userid, string cmd)
         html += ".btn-outline-huang{color:#F0E68C;border-color:#F0E68C;background:#FFFEF8}\n";
     }
 
+    // ========== 新增境界按钮颜色样式（必须在这里定义）==========
+    // 注意：这些样式在if-else之外，不受主题影响，确保始终加载
+    html += ".btn-outline-yujie{color:#8B7765;border:2px solid #8B7765;background:#FFF4EC;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-sejie{color:#4169E1;border:2px solid #4169E1;background:#ECF3FF;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-wuse{color:#ADD8E6;border:2px solid #ADD8E6;background:#F0F8FF;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-lisan1{color:#228B22;border:2px solid #228B22;background:#F0FFF0;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-lisan2{color:#32CD32;border:2px solid #32CD32;background:#F5FFF5;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-lisan3{color:#FFD700;border:2px solid #FFD700;background:#FFFFE0;padding:6px 12px;font-weight:bold;text-shadow:0 0 3px #FFA500}\n";
+    html += ".btn-outline-poxu{color:#FF6347;border:2px solid #FF6347;background:#FFF0EE;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-dujie{color:#FF4500;border:2px solid #FF4500;background:#FFE0DD;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-tianxian{color:#00BFFF;border:2px solid #00BFFF;background:#E0F7FF;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-jinxian{color:#FFA500;border:2px solid #FFA500;background:#FFF8E7;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-taiyi{color:#9932CC;border:2px solid #9932CC;background:#F3E5F5;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-hunyuan{color:#8A2BE2;border:2px solid #8A2BE2;background:#F3E5FF;padding:6px 12px;font-weight:bold}\n";
+    html += ".btn-outline-daluo{color:#9400D3;border:2px solid #9400D3;background:#F3E5FF;padding:6px 12px;font-weight:bold}\n";
+    // 大道境 - 金色发光特效
+    html += ".btn-outline-dadao{color:#FFD700;border:3px solid #FFD700;background:#000;padding:6px 14px;font-weight:bold;text-shadow:0 0 8px #FFD700,0 0 15px #FFA500,0 0 20px #FF4500;box-shadow:0 0 10px rgba(255,215,0,0.5)}\n";
+    html += ".btn-outline-dadao:hover{background:#1a1a1a;text-shadow:0 0 12px #FFD700,0 0 20px #FFA500,0 0 30px #FF4500;box-shadow:0 0 20px rgba(255,215,0,0.8);transform:scale(1.05)}\n";
+    // 超凡境 - 红橙金渐变
+    html += ".btn-outline-chaofan{color:#FFF;border:2px solid #FFD700;background:linear-gradient(90deg,#FF4500,#FF8C00,#FFD700);padding:6px 14px;font-weight:bold;box-shadow:0 0 10px rgba(255,215,0,0.6)}\n";
+    html += ".btn-outline-chaofan:hover{background:linear-gradient(90deg,#FFD700,#FFA500,#FF4500);box-shadow:0 0 20px rgba(255,215,0,0.9);transform:scale(1.08)}\n";
+
     html += ".ink-wash-gradient{background:linear-gradient(90deg,#8B4513,#D2691E,#CD853F,#DEB887,#2F4F4F,#696969);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:bold}\n";
     html += sprintf(".parent::-webkit-scrollbar{width:8px}\n");
     html += sprintf(".parent::-webkit-scrollbar-track{background:%s}\n", scrollbar_track);
@@ -395,6 +417,23 @@ string get_button_css_class(string link_name)
     string btn_xuan = "btn btn-outline-xuan btn-sm";
     string btn_huang = "btn btn-outline-huang btn-sm";
 
+    // 新增境界按钮样式类
+    string btn_yujie = "btn btn-outline-yujie btn-sm";
+    string btn_sejie = "btn btn-outline-sejie btn-sm";
+    string btn_wuse = "btn btn-outline-wuse btn-sm";
+    string btn_lisan1 = "btn btn-outline-lisan1 btn-sm";
+    string btn_lisan2 = "btn btn-outline-lisan2 btn-sm";
+    string btn_lisan3 = "btn btn-outline-lisan3 btn-sm";
+    string btn_poxu = "btn btn-outline-poxu btn-sm";
+    string btn_dujie = "btn btn-outline-dujie btn-sm";
+    string btn_tianxian = "btn btn-outline-tianxian btn-sm";
+    string btn_jinxian = "btn btn-outline-jinxian btn-sm";
+    string btn_taiyi = "btn btn-outline-taiyi btn-sm";
+    string btn_hunyuan = "btn btn-outline-hunyuan btn-sm";
+    string btn_daluo = "btn btn-outline-daluo btn-sm";
+    string btn_dadao = "btn btn-outline-dadao btn-sm";
+    string btn_chaofan = "btn btn-outline-chaofan btn-sm";
+
     mixed err = catch {
         mapping(string:string) primary_key_map = ([]);
 
@@ -493,6 +532,34 @@ string get_button_css_class(string link_name)
                 } else if(n == 4) {
                     primary_key_map[index] = btn_purple;
                 }
+            }
+        }
+
+        // ========== 境界检查（最高优先级，在所有其他检查之前）==========
+        // 创建单独的境界映射，优先检查
+        mapping(string:string) realm_map = ([
+            "大道境-" : btn_dadao,
+            "超凡境-" : btn_chaofan,
+            "大罗境-" : btn_daluo,
+            "混元境-" : btn_hunyuan,
+            "太乙境-" : btn_taiyi,
+            "金仙境-" : btn_jinxian,
+            "天仙境-" : btn_tianxian,
+            "渡劫境-" : btn_dujie,
+            "破虚境-" : btn_poxu,
+            "离三界-高阶-" : btn_lisan3,
+            "离三界-中阶-" : btn_lisan2,
+            "离三界-初阶-" : btn_lisan1,
+            "离三界-" : btn_lisan1,  // 兼容旧装备
+            "无色界-" : btn_wuse,
+            "色界-" : btn_sejie,
+            "欲界-" : btn_yujie,
+        ]);
+
+        // 先检查境界（优先级最高）
+        foreach(realm_map; string realm_key; string realm_css) {
+            if(search(link_name, realm_key) != -1) {
+                return realm_css;
             }
         }
 
