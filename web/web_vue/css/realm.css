@@ -1,0 +1,146 @@
+/* ============================================
+   境界装备颜色样式
+   ============================================ */
+
+/* 欲界 - 棕灰 */
+a.btn.btn-outline-yujie,
+button.btn.btn-outline-yujie {
+  color: #8B7765 !important;
+  border-color: #8B7765 !important;
+  background-color: #FFF4EC !important;
+}
+
+/* 色界 - 蔚蓝 */
+a.btn.btn-outline-sejie,
+button.btn.btn-outline-sejie {
+  color: #4169E1 !important;
+  border-color: #4169E1 !important;
+  background-color: #ECF3FF !important;
+}
+
+/* 无色界 - 青白 */
+a.btn.btn-outline-wuse,
+button.btn.btn-outline-wuse {
+  color: #ADD8E6 !important;
+  border-color: #ADD8E6 !important;
+  background-color: #F0F8FF !important;
+}
+
+/* 离三界-初阶 - 翠绿 */
+a.btn.btn-outline-lisan1,
+button.btn.btn-outline-lisan1 {
+  color: #228B22 !important;
+  border-color: #228B22 !important;
+  background-color: #F0FFF0 !important;
+}
+
+/* 离三界-中阶 - 金绿 */
+a.btn.btn-outline-lisan2,
+button.btn.btn-outline-lisan2 {
+  color: #32CD32 !important;
+  border-color: #32CD32 !important;
+  background-color: #F5FFF5 !important;
+}
+
+/* 离三界-高阶 - 金黄 */
+a.btn.btn-outline-lisan3,
+button.btn.btn-outline-lisan3 {
+  color: #FFD700 !important;
+  border-color: #FFD700 !important;
+  background-color: #FFFFE0 !important;
+  text-shadow: 0 0 3px #FFA500 !important;
+}
+
+/* 破虚境 - 橙红 */
+a.btn.btn-outline-poxu,
+button.btn.btn-outline-poxu {
+  color: #FF6347 !important;
+  border-color: #FF6347 !important;
+  background-color: #FFF0EE !important;
+}
+
+/* 渡劫境 - 烈焰 */
+a.btn.btn-outline-dujie,
+button.btn.btn-outline-dujie {
+  color: #FF4500 !important;
+  border-color: #FF4500 !important;
+  background-color: #FFE0DD !important;
+}
+
+/* 天仙境 - 天蓝 */
+a.btn.btn-outline-tianxian,
+button.btn.btn-outline-tianxian {
+  color: #00BFFF !important;
+  border-color: #00BFFF !important;
+  background-color: #E0F7FF !important;
+}
+
+/* 金仙境 - 金橙 */
+a.btn.btn-outline-jinxian,
+button.btn.btn-outline-jinxian {
+  color: #FFA500 !important;
+  border-color: #FFA500 !important;
+  background-color: #FFF8E7 !important;
+}
+
+/* 太乙境 - 紫金 */
+a.btn.btn-outline-taiyi,
+button.btn.btn-outline-taiyi {
+  color: #9932CC !important;
+  border-color: #9932CC !important;
+  background-color: #F3E5F5 !important;
+}
+
+/* 混元境 - 混紫 */
+a.btn.btn-outline-hunyuan,
+button.btn.btn-outline-hunyuan {
+  color: #8A2BE2 !important;
+  border-color: #8A2BE2 !important;
+  background-color: #F3E5FF !important;
+}
+
+/* 大罗境 - 深紫 */
+a.btn.btn-outline-daluo,
+button.btn.btn-outline-daluo {
+  color: #9400D3 !important;
+  border-color: #9400D3 !important;
+  background-color: #F3E5FF !important;
+}
+
+/* 大道境 - 金色发光特效 */
+a.btn.btn-outline-dadao,
+button.btn.btn-outline-dadao {
+  color: #FFD700 !important;
+  border: 3px solid #FFD700 !important;
+  background-color: #000 !important;
+  font-weight: bold !important;
+  text-shadow: 0 0 8px #FFD700, 0 0 15px #FFA500, 0 0 20px #FF4500 !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8) !important;
+  padding: 6px 14px !important;
+}
+
+a.btn.btn-outline-dadao:hover,
+button.btn.btn-outline-dadao:hover {
+  background-color: #1a1a1a !important;
+  text-shadow: 0 0 12px #FFD700, 0 0 20px #FFA500, 0 0 30px #FF4500 !important;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 1) !important;
+  transform: scale(1.05) !important;
+}
+
+/* 超凡境 - 红橙金渐变 */
+a.btn.btn-outline-chaofan,
+button.btn.btn-outline-chaofan {
+  color: #FFF !important;
+  border: 2px solid #FFD700 !important;
+  background: linear-gradient(90deg, #FF4500, #FF8C00, #FFD700) !important;
+  font-weight: bold !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8) !important;
+  padding: 6px 14px !important;
+}
+
+a.btn.btn-outline-chaofan:hover,
+button.btn.btn-outline-chaofan:hover {
+  background: linear-gradient(90deg, #FFD700, #FFA500, #FF4500) !important;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 1) !important;
+  transform: scale(1.08) !important;
+}
