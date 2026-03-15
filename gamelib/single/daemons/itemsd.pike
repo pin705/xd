@@ -810,8 +810,41 @@ float get_item_rate_add(int level){
 		case 91..100:
 			ret=1.5;
 			break;
-		case 101..:
+		case 101..120:
 			ret=1.7;
+			break;
+		case 121..140:
+			ret=1.9;
+			break;
+		case 141..160:
+			ret=2.1;
+			break;
+		case 161..190:
+			ret=2.3;
+			break;
+		case 191..230:
+			ret=2.5;
+			break;
+		case 231..280:
+			ret=2.7;
+			break;
+		case 281..330:
+			ret=3.0;
+			break;
+		case 331..380:
+			ret=3.3;
+			break;
+		case 381..430:
+			ret=3.6;
+			break;
+		case 431..480:
+			ret=4.0;
+			break;
+		case 481..500:
+			ret=4.5;
+			break;
+		case 501..:
+			ret=5.0;
 			break;
 	}
 	return ret;
@@ -828,22 +861,78 @@ string get_item_name_prefix(int level, void|object ob){
 		case 91..100:
 			ret="无色界-";
 			break;
-		case 101..:
-			ret="离三界-";
+		case 101..120:
+			ret="离三界-初阶-";
+			break;
+		case 121..140:
+			ret="离三界-中阶-";
+			break;
+		case 141..160:
+			ret="离三界-高阶-";
+			break;
+		case 161..190:
+			ret="破虚境-";
+			break;
+		case 191..230:
+			ret="渡劫境-";
+			break;
+		case 231..280:
+			ret="天仙境-";
+			break;
+		case 281..330:
+			ret="金仙境-";
+			break;
+		case 331..380:
+			ret="太乙境-";
+			break;
+		case 381..430:
+			ret="混元境-";
+			break;
+		case 431..480:
+			ret="大罗境-";
+			break;
+		case 481..500:
+			ret="大道境-";
+			break;
+		case 501..:
+			ret="超凡境-";
 			break;
 	};
 	werror("=========get_item_name_prefix level:"+level+"\n");
 	if(ob && level == -1){
-		werror("=========get_item_name_prefix 836 ob name cn:"+ob->query_name_cn()+"\n");
-		if(search(ob->query_name_cn(), "离三界-") !=-1)
-				ret="离三界-";
-		if(search(ob->query_name_cn(), "无色界-") !=-1)
-				ret="无色界-";
-		if(search(ob->query_name_cn(), "色界-") !=-1)
-				ret="色界-";
-		if(search(ob->query_name_cn(), "欲界-") !=-1)
-				ret="欲界-";
-		
+		werror("=========get_item_name_prefix 870 ob name cn:"+ob->query_name_cn()+"\n");
+		// 按优先级从高到低检测，避免匹配到错误的境界
+		if(search(ob->query_name_cn(), "大道境-") !=-1)
+			ret="大道境-";
+		else if(search(ob->query_name_cn(), "大罗境-") !=-1)
+			ret="大罗境-";
+		else if(search(ob->query_name_cn(), "混元境-") !=-1)
+			ret="混元境-";
+		else if(search(ob->query_name_cn(), "太乙境-") !=-1)
+			ret="太乙境-";
+		else if(search(ob->query_name_cn(), "金仙境-") !=-1)
+			ret="金仙境-";
+		else if(search(ob->query_name_cn(), "天仙境-") !=-1)
+			ret="天仙境-";
+		else if(search(ob->query_name_cn(), "渡劫境-") !=-1)
+			ret="渡劫境-";
+		else if(search(ob->query_name_cn(), "破虚境-") !=-1)
+			ret="破虚境-";
+		else if(search(ob->query_name_cn(), "离三界-高阶-") !=-1)
+			ret="离三界-高阶-";
+		else if(search(ob->query_name_cn(), "离三界-中阶-") !=-1)
+			ret="离三界-中阶-";
+		else if(search(ob->query_name_cn(), "离三界-初阶-") !=-1)
+			ret="离三界-初阶-";
+		else if(search(ob->query_name_cn(), "离三界-") !=-1)
+			ret="离三界-";  // 兼容旧装备
+		else if(search(ob->query_name_cn(), "无色界-") !=-1)
+			ret="无色界-";
+		else if(search(ob->query_name_cn(), "色界-") !=-1)
+			ret="色界-";
+		else if(search(ob->query_name_cn(), "欲界-") !=-1)
+			ret="欲界-";
+
 	}
 	//werror("========get_item_name_prefixret:"+ret+"\n");
 	return ret;

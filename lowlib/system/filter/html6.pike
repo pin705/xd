@@ -133,6 +133,22 @@ string get_right_href_css(string link_name)
 	string hrefcss_di="btn btn-outline-di btn-sm";
 	string hrefcss_xuan="btn btn-outline-xuan btn-sm";
 	string hrefcss_huang="btn btn-outline-huang btn-sm";
+	// 新增境界颜色样式
+	string hrefcss_yujie="btn btn-outline-yujie btn-sm";
+	string hrefcss_sejie="btn btn-outline-sejie btn-sm";
+	string hrefcss_wuse="btn btn-outline-wuse btn-sm";
+	string hrefcss_lisan1="btn btn-outline-lisan1 btn-sm";
+	string hrefcss_lisan2="btn btn-outline-lisan2 btn-sm";
+	string hrefcss_lisan3="btn btn-outline-lisan3 btn-sm";
+	string hrefcss_poxu="btn btn-outline-poxu btn-sm";
+	string hrefcss_dujie="btn btn-outline-dujie btn-sm";
+	string hrefcss_tianxian="btn btn-outline-tianxian btn-sm";
+	string hrefcss_jinxian="btn btn-outline-jinxian btn-sm";
+	string hrefcss_taiyi="btn btn-outline-taiyi btn-sm";
+	string hrefcss_hunyuan="btn btn-outline-hunyuan btn-sm";
+	string hrefcss_daluo="btn btn-outline-daluo btn-sm";
+	string hrefcss_dadao="btn btn-outline-dadao btn-sm";
+	string hrefcss_chaofan="btn btn-outline-chaofan btn-sm";
 	mixed err= catch{
 		mapping(string:string) primary_key_map=([]);
 		primary_key_map["9*"]=hrefcss_huang;
@@ -198,6 +214,23 @@ string get_right_href_css(string link_name)
 		primary_key_map["【空觉】"]=hrefcss_di;
 		primary_key_map["【破空】"]=hrefcss_tian;
 		primary_key_map["【寂灭】"]=hrefcss_huang;
+		// 新增境界颜色映射
+		primary_key_map["欲界-"]=hrefcss_yujie;
+		primary_key_map["色界-"]=hrefcss_sejie;
+		primary_key_map["无色界-"]=hrefcss_wuse;
+		primary_key_map["离三界-初阶-"]=hrefcss_lisan1;
+		primary_key_map["离三界-中阶-"]=hrefcss_lisan2;
+		primary_key_map["离三界-高阶-"]=hrefcss_lisan3;
+		primary_key_map["离三界-"]=hrefcss_lisan1;  // 兼容旧装备
+		primary_key_map["破虚境-"]=hrefcss_poxu;
+		primary_key_map["渡劫境-"]=hrefcss_dujie;
+		primary_key_map["天仙境-"]=hrefcss_tianxian;
+		primary_key_map["金仙境-"]=hrefcss_jinxian;
+		primary_key_map["太乙境-"]=hrefcss_taiyi;
+		primary_key_map["混元境-"]=hrefcss_hunyuan;
+		primary_key_map["大罗境-"]=hrefcss_daluo;
+		primary_key_map["大道境-"]=hrefcss_dadao;
+		primary_key_map["超凡境-"]=hrefcss_chaofan;
 		
 		primary_key_map["【玉】碎玉"]=hrefcss_blue;
 		primary_key_map["【玉】仙缘玉"]=hrefcss_darkorange;

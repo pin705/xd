@@ -386,16 +386,67 @@ string format_html_button(string label, string cmd, string txd, string userid)
 {
     string css_class = "btn btn-outline-info btn-sm";
 
+    // 方向按钮
     if(search(label, "东→") != -1 || search(label, "西←") != -1 ||
        search(label, "南↓") != -1 || search(label, "北↑") != -1) {
         css_class = "btn btn-outline-success btn-sm";
     }
+    // 特殊功能按钮
     else if(search(label, "杀戮") != -1 || search(label, "商城") != -1 ||
             search(label, "锻造") != -1) {
         css_class = "btn btn-outline-warning btn-sm";
     }
     else if(search(label, "吃药") != -1) {
         css_class = "btn btn-outline-purple btn-sm";
+    }
+    // 新增境界颜色检测（按优先级从高到低）
+    else if(search(label, "大道境-") != -1) {
+        css_class = "btn btn-outline-dadao btn-sm";
+    }
+    else if(search(label, "超凡境-") != -1) {
+        css_class = "btn btn-outline-chaofan btn-sm";
+    }
+    else if(search(label, "大罗境-") != -1) {
+        css_class = "btn btn-outline-daluo btn-sm";
+    }
+    else if(search(label, "混元境-") != -1) {
+        css_class = "btn btn-outline-hunyuan btn-sm";
+    }
+    else if(search(label, "太乙境-") != -1) {
+        css_class = "btn btn-outline-taiyi btn-sm";
+    }
+    else if(search(label, "金仙境-") != -1) {
+        css_class = "btn btn-outline-jinxian btn-sm";
+    }
+    else if(search(label, "天仙境-") != -1) {
+        css_class = "btn btn-outline-tianxian btn-sm";
+    }
+    else if(search(label, "渡劫境-") != -1) {
+        css_class = "btn btn-outline-dujie btn-sm";
+    }
+    else if(search(label, "破虚境-") != -1) {
+        css_class = "btn btn-outline-poxu btn-sm";
+    }
+    else if(search(label, "离三界-高阶-") != -1) {
+        css_class = "btn btn-outline-lisan3 btn-sm";
+    }
+    else if(search(label, "离三界-中阶-") != -1) {
+        css_class = "btn btn-outline-lisan2 btn-sm";
+    }
+    else if(search(label, "离三界-初阶-") != -1) {
+        css_class = "btn btn-outline-lisan1 btn-sm";
+    }
+    else if(search(label, "离三界-") != -1) {
+        css_class = "btn btn-outline-lisan1 btn-sm";  // 兼容旧装备
+    }
+    else if(search(label, "无色界-") != -1) {
+        css_class = "btn btn-outline-wuse btn-sm";
+    }
+    else if(search(label, "色界-") != -1) {
+        css_class = "btn btn-outline-sejie btn-sm";
+    }
+    else if(search(label, "欲界-") != -1) {
+        css_class = "btn btn-outline-yujie btn-sm";
     }
 
     string hidden_cmd = hide_command(userid, cmd);

@@ -372,7 +372,216 @@
     border-color: #F56308; 
   } 
    
-  .btn-outline-huang .badge { 
-    color: #F5D1BA; 
-    background-color: #7F0AF5; 
+  .btn-outline-huang .badge {
+    color: #F5D1BA;
+    background-color: #7F0AF5;
+  }
+
+  /* ========== 新增境界颜色样式 ========== */
+
+  /* 欲界 - 棕灰 */
+  .btn-outline-yujie {
+    color: #8B7765;
+    background-color: #FFFFFF;
+    border-color: #8B7765;
+  }
+  .btn-outline-yujie:hover, .btn-outline-yujie:focus, .btn-outline-yujie:active, .btn-outline-yujie.active {
+    color: #8B7765;
+    background-color: #F5E6D3;
+    border-color: #8B7765;
+  }
+
+  /* 色界 - 蔚蓝 */
+  .btn-outline-sejie {
+    color: #4169E1;
+    background-color: #FFFFFF;
+    border-color: #4169E1;
+  }
+  .btn-outline-sejie:hover, .btn-outline-sejie:focus, .btn-outline-sejie:active, .btn-outline-sejie.active {
+    color: #4169E1;
+    background-color: #E6E6FA;
+    border-color: #4169E1;
+  }
+
+  /* 无色界 - 青白 */
+  .btn-outline-wuse {
+    color: #ADD8E6;
+    background-color: #FFFFFF;
+    border-color: #ADD8E6;
+  }
+  .btn-outline-wuse:hover, .btn-outline-wuse:focus, .btn-outline-wuse:active, .btn-outline-wuse.active {
+    color: #ADD8E6;
+    background-color: #F0F8FF;
+    border-color: #ADD8E6;
+  }
+
+  /* 离三界-初阶 - 翠绿 */
+  .btn-outline-lisan1 {
+    color: #228B22;
+    background-color: #FFFFFF;
+    border-color: #228B22;
+  }
+  .btn-outline-lisan1:hover, .btn-outline-lisan1:focus, .btn-outline-lisan1:active, .btn-outline-lisan1.active {
+    color: #228B22;
+    background-color: #F0FFF0;
+    border-color: #228B22;
+  }
+
+  /* 离三界-中阶 - 金绿 */
+  .btn-outline-lisan2 {
+    color: #32CD32;
+    background-color: #FFFFFF;
+    border-color: #32CD32;
+  }
+  .btn-outline-lisan2:hover, .btn-outline-lisan2:focus, .btn-outline-lisan2:active, .btn-outline-lisan2.active {
+    color: #32CD32;
+    background-color: #F5FFF5;
+    border-color: #32CD32;
+  }
+
+  /* 离三界-高阶 - 金黄 */
+  .btn-outline-lisan3 {
+    color: #FFD700;
+    background-color: #FFFFFF;
+    border-color: #FFD700;
+  }
+  .btn-outline-lisan3:hover, .btn-outline-lisan3:focus, .btn-outline-lisan3:active, .btn-outline-lisan3.active {
+    color: #FFD700;
+    background-color: #FFFACD;
+    border-color: #FFD700;
+  }
+
+  /* 破虚境 - 橙红 */
+  .btn-outline-poxu {
+    color: #FF6347;
+    background-color: #FFFFFF;
+    border-color: #FF6347;
+  }
+  .btn-outline-poxu:hover, .btn-outline-poxu:focus, .btn-outline-poxu:active, .btn-outline-poxu.active {
+    color: #FF6347;
+    background-color: #FFE4E1;
+    border-color: #FF6347;
+  }
+
+  /* 渡劫境 - 烈焰 */
+  .btn-outline-dujie {
+    color: #FF4500;
+    background-color: #FFFFFF;
+    border-color: #FF4500;
+  }
+  .btn-outline-dujie:hover, .btn-outline-dujie:focus, .btn-outline-dujie:active, .btn-outline-dujie.active {
+    color: #FF4500;
+    background-color: #FFD3D3;
+    border-color: #FF4500;
+  }
+
+  /* 天仙境 - 天蓝 */
+  .btn-outline-tianxian {
+    color: #00BFFF;
+    background-color: #FFFFFF;
+    border-color: #00BFFF;
+  }
+  .btn-outline-tianxian:hover, .btn-outline-tianxian:focus, .btn-outline-tianxian:active, .btn-outline-tianxian.active {
+    color: #00BFFF;
+    background-color: #E0F7FF;
+    border-color: #00BFFF;
+  }
+
+  /* 金仙境 - 金橙 */
+  .btn-outline-jinxian {
+    color: #FFA500;
+    background-color: #FFFFFF;
+    border-color: #FFA500;
+  }
+  .btn-outline-jinxian:hover, .btn-outline-jinxian:focus, .btn-outline-jinxian:active, .btn-outline-jinxian.active {
+    color: #FFA500;
+    background-color: #FFF8E7;
+    border-color: #FFA500;
+  }
+
+  /* 太乙境 - 紫金 */
+  .btn-outline-taiyi {
+    color: #9932CC;
+    background-color: #FFFFFF;
+    border-color: #9932CC;
+  }
+  .btn-outline-taiyi:hover, .btn-outline-taiyi:focus, .btn-outline-taiyi:active, .btn-outline-taiyi.active {
+    color: #9932CC;
+    background-color: #F3E5F5;
+    border-color: #9932CC;
+  }
+
+  /* 混元境 - 混紫 */
+  .btn-outline-hunyuan {
+    color: #8A2BE2;
+    background-color: #FFFFFF;
+    border-color: #8A2BE2;
+  }
+  .btn-outline-hunyuan:hover, .btn-outline-hunyuan:focus, .btn-outline-hunyuan:active, .btn-outline-hunyuan.active {
+    color: #8A2BE2;
+    background-color: #F3E5FF;
+    border-color: #8A2BE2;
+  }
+
+  /* 大罗境 - 深紫 */
+  .btn-outline-daluo {
+    color: #9400D3;
+    background-color: #FFFFFF;
+    border-color: #9400D3;
+  }
+  .btn-outline-daluo:hover, .btn-outline-daluo:focus, .btn-outline-daluo:active, .btn-outline-daluo.active {
+    color: #9400D3;
+    background-color: #F3E5FF;
+    border-color: #9400D3;
+  }
+
+  /* 大道境 - 彩虹渐变 */
+  .btn-outline-dadao {
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    background-size: 200% 200%;
+    color: #FFFFFF;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    animation: rainbow 3s linear infinite;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  }
+  .btn-outline-dadao:hover, .btn-outline-dadao:focus, .btn-outline-dadao:active, .btn-outline-dadao.active {
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    background-size: 200% 200%;
+    animation: rainbow 1.5s linear infinite;
+    transform: scale(1.05);
+  }
+
+  /* 超凡境 - 炫彩流光 */
+  .btn-outline-chaofan {
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FF6347, #FF4500, #FF1493, #FFD700);
+    background-size: 300% 300%;
+    color: #FFFFFF;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    animation: flowing 2s ease infinite;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    box-shadow: 0 0 10px rgba(255,215,0,0.5);
+  }
+  .btn-outline-chaofan:hover, .btn-outline-chaofan:focus, .btn-outline-chaofan:active, .btn-outline-chaofan.active {
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FF6347, #FF4500, #FF1493, #FFD700);
+    background-size: 300% 300%;
+    animation: flowing 1s ease infinite;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255,215,0,0.8);
+  }
+
+  /* 彩虹动画 */
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  /* 流光动画 */
+  @keyframes flowing {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
