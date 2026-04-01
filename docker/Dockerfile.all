@@ -27,9 +27,10 @@ RUN dnf install -y dnf-plugins-core && \
     git && \
     dnf clean all
 
-# 下载 Pike 9.0.11 预编译源码包（相比git版本更稳定）
+# 复制本地 Pike 9.0.11 预编译源码包（相比git版本更稳定）
+COPY docker/Pike-v9.0.11.tar.gz /tmp/build/Pike-v9.0.11.tar.gz
 RUN cd /tmp/build && \
-    curl -sL https://pike.lysator.liu.se/pub/pike/beta/9.0.11/Pike-v9.0.11.tar.gz | tar xz && \
+    tar xzf /tmp/build/Pike-v9.0.11.tar.gz && \
     mv Pike-v9.0.11 pike9
 
 # 编译 Pike 9.0.11
