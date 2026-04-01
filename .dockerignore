@@ -35,6 +35,8 @@ dist/
 
 # Docker 相关（避免递归）
 docker/
+# 但允许 Pike 源码包
+!docker/Pike-v9.0.11.tar.gz
 
 # 脚本输出
 *.pid
